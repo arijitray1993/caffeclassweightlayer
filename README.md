@@ -23,3 +23,4 @@ It takes in a ```num_examples x channels x ....``` input, where ```num_examples`
  }
 ```
 
+Make sure the file ```weightclass.py``` is placed in the ```$PYTHONPATH``` for caffe. Mostly, it should be ```$blah$/caffe/python/``` , where ```$blah$``` is wherever you set up the caffe folder during installation.
