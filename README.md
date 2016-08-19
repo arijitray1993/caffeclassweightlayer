@@ -7,13 +7,13 @@ USAGE:
 
 In your prototxt file containing the network, add this layer in the following way wherever necessary. 
 
-It takes in a ```num_examples x channels x ....``` input, where ```num_examples``` is the number of examples in a batch, ```channels``` are the number of classes, ```....``` can be just a number for a single class output or an image w x h for image segmentation where each pixel is a class. \\ 
+It takes in a ```num_examples x channels``` input from the bottom layer, where ```num_examples``` is the number of examples in a batch, ```channels``` are the number of classes. The bottom layer input can either be a vector where each number is a probability for a class,  or an image (```channels x w x h```) for image segmentation, where each pixel is a probability for the ```channel``` class.  
 
 ```
  layer {
   name: "PythonWeightlayer" 
   type: "Python" 
-  bottom: "score" # this contains num_examples X channels X ... probabilities where each channel is the probability of each class. 
+  bottom: "score" # this contains num_examples X channels probabilities where each channel is the probability of each class. 
   top: "PythonWeightLayer" 
   python_param { 
     module: "weightclass" 
